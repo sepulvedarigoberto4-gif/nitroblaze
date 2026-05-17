@@ -929,3 +929,6 @@ async function cargarDeportistas() {
 }
 
 cargarDeportistas();
+window.app = app;
+
+console.log("APP CARGADA OK");
