@@ -890,3 +890,18 @@ const app = {
 };
 
 document.addEventListener('DOMContentLoaded', () => app.init());
+async function cargarDeportistas() {
+
+  const querySnapshot = await getDocs(
+    collection(db, "deportistas")
+  );
+
+  querySnapshot.forEach((doc) => {
+
+    console.log(doc.data());
+
+  });
+
+}
+
+cargarDeportistas();
