@@ -5,7 +5,18 @@ import {
   collection,
   getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-const defaultDb = {
+const firebaseConfig = {
+  apiKey: "AIzaSyCSsDs_fcT1lYeSsvbI51f5KEbgyZq3pek",
+  authDomain: "nitroblaze-350bf.firebaseapp.com",
+  projectId: "nitroblaze-350bf",
+  storageBucket: "nitroblaze-350bf.firebasestorage.app",
+  messagingSenderId: "107366140735",
+  appId: "1:107366140735:web:7494931fda3e4d1fec618a"
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
+
+const firestoreDb = getFirestore(firebaseApp);
     athletes: [
         { id: 1, firstName: 'Carlos', lastName: 'Méndez', sex: 'M', birthDate: '2005-06-15', joinDate: '2024-01-10', club: 'Nitroblaze', compNumber: '105', category: 'Juvenil', active: true, photo: 'https://i.pravatar.cc/150?u=1' },
         { id: 2, firstName: 'Valentina', lastName: 'Rojas', sex: 'F', birthDate: '2008-02-10', joinDate: '2025-03-01', club: 'Nitroblaze', compNumber: '210', category: 'Pre-Juvenil', active: true, photo: 'https://i.pravatar.cc/150?u=2' },
@@ -894,7 +905,7 @@ document.addEventListener('DOMContentLoaded', () => app.init());
 async function cargarDeportistas() {
 
   const querySnapshot = await getDocs(
-    collection(db, "deportistas")
+    collection(firestoreDb, "deportistas")
   );
 
   querySnapshot.forEach((doc) => {
