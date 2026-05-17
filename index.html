@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nitroblaze Mobile App</title>
+    <meta name="description" content="Aplicación oficial del club deportivo Nitroblaze">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Chart.js for Donut / Line / Radar charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+    <div id="app-container">
+        <!-- HEADER -->
+        <header id="main-header">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="ph ph-lightning"></i>
+                    <span>NITROBLAZE</span>
+                </div>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <div class="date" id="current-date"></div>
+                    <button id="admin-login-btn" onclick="app.modals.showLogin()" style="background: none; border: none; color: var(--color-text-muted); cursor: pointer; font-size: 1.2rem;">
+                        <i class="ph ph-lock" id="admin-lock-icon"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="motivational-quote" id="motivational-quote">
+                "La disciplina vence al talento."
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT (VIEWS) -->
+        <main id="main-content">
+            <!-- Views will be injected here by app.js -->
+        </main>
+
+        <!-- BOTTOM NAVIGATION -->
+        <nav id="bottom-nav">
+            <button class="nav-item active" data-view="home">
+                <i class="ph ph-house"></i>
+                <span>Home</span>
+            </button>
+            <button class="nav-item" data-view="athletes">
+                <i class="ph ph-users"></i>
+                <span>Deportistas</span>
+            </button>
+            <button class="nav-item" data-view="attendance">
+                <i class="ph ph-calendar-check"></i>
+                <span>Asistencia</span>
+            </button>
+            <button class="nav-item" data-view="global-competitions">
+                <i class="ph ph-medal"></i>
+                <span>Próximas Comp.</span>
+            </button>
+        </nav>
+
+        <!-- FLOATING ACTION BUTTON (Admin Only) -->
+        <button id="fab-main" class="fab hidden" onclick="app.handleFabClick()">
+            <i class="ph ph-plus" id="fab-icon"></i>
+        </button>
+
+        <!-- MODAL OVERLAY -->
+        <div id="modal-overlay" class="modal-overlay hidden">
+            <div class="modal-content" id="modal-content">
+                <!-- Forms injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=2"></script>
+</body>
+</html>
