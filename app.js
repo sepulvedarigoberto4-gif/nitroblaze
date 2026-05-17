@@ -905,3 +905,4 @@ async function cargarDeportistas() {
 }
 
 cargarDeportistas();
+window.app = app;
