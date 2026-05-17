@@ -904,17 +904,28 @@ const app = {
 document.addEventListener('DOMContentLoaded', () => app.init());
 async function cargarDeportistas() {
 
-  const querySnapshot = await getDocs(
-    collection(firestoreDb, "deportistas")
-  );
+  try {
 
-  querySnapshot.forEach((doc) => {
+    const querySnapshot = await getDocs(
+      collection(firestoreDb, "deportistas")
+    );
 
-    console.log(doc.data());
+    alert("🔥 FIREBASE CONECTADO");
 
-  });
+    querySnapshot.forEach((doc) => {
+
+      console.log(doc.id, doc.data());
+
+    });
+
+  } catch(error) {
+
+    alert("❌ ERROR FIREBASE");
+
+    console.log(error);
+
+  }
 
 }
 
 cargarDeportistas();
-window.app = app;
