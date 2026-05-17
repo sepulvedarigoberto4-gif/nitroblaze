@@ -1,4 +1,9 @@
-// --- MOCK DATABASE WITH LOCAL STORAGE ---
+import { db } from "./firebase.js";
+
+import {
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 const defaultDb = {
     athletes: [
         { id: 1, firstName: 'Carlos', lastName: 'Méndez', sex: 'M', birthDate: '2005-06-15', joinDate: '2024-01-10', club: 'Nitroblaze', compNumber: '105', category: 'Juvenil', active: true, photo: 'https://i.pravatar.cc/150?u=1' },
